@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag "index.css"  %>
+
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to 'Log Out', logout_path %>
+  <% else %>
+    <div class="box">
+      <div class="border" >
+        <%= link_to 'Sign Up', signup_path, class: "btn btn-primary signin" %>
+        <div class="line">
+          <div class="top-line"></div>
+          <p>OR</p>
+          <div class="top-line"></div>
+        </div>
+        <%= link_to 'Log In', login_path, class: "btn btn-secondary login" %>
+      </div>
+    </div>
+  <% end %>
+
+<p id='notice'><%= notice %></p>
+
+<h1>Example</h1>
+<p>Lorem ipsum …</p>

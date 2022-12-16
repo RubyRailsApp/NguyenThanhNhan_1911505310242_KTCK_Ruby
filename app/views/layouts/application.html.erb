@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nguyenthanhnhan1911505310242Ktck</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%# 1. Navbar %>
+    <%= render "layouts/navbar"  %>
+
+    <div class="container" style="height: 20em;" >
+      <%= yield %>
+    </div>
+  </body>
+</html>

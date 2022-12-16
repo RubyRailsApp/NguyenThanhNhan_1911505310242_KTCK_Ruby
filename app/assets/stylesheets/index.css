@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box, .line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  width: 25%;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 2em 0;
+}
+
+.line p {
+  margin: 0 0.5em;
+}
+
+.line .top-line {
+  border: 1px solid #000;
+  width: 20%;
+}
+
+.btn {
+  width: 55%;
+}
