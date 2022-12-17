@@ -1,0 +1,73 @@
+<%= stylesheet_link_tag "book"  %>
+
+<p style="color: green"><%= notice %></p>
+
+<% if current_user %>
+  Welcome to <%= current_user.email %>.
+  <%= link_to 'Log Out', logout_path, class: "btn btn-danger btn-new" %>
+
+<h1>Books</h1>
+
+    <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+        <div class="d-flex justify-content-end align-items-center">
+          <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2", style: "width: 30%"  %>
+          <%= submit_tag "Search", class: "btn btn-info", style: "width: 10%; margin-left: 16px;" %>
+        </div>
+      <% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>Page</th>
+      <th>Title</th>
+      <th colspan="3" ></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr >
+        <td>
+          <%= link_to book.name, edit_book_path(book), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to book.author, edit_book_path(book), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to book.year, edit_book_path(book), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to book.page, edit_book_path(book), class: "text-decoration-none" %>
+        </td>
+
+         <td>
+          <%= link_to book.title, edit_book_path(book), class: "text-decoration-none" %>
+        </td>
+
+        <td><%= button_to "Destroy", book, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure ?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "New book", new_book_path, class: "btn btn-success btn-new" %>
+
+<% else %>
+    <div class="box">
+      <div class="border" >
+        <%= link_to 'Sign Up', signup_path, class: "btn btn-primary signin" %>
+        <div class="line">
+          <div class="top-line"></div>
+          <p>OR</p>
+          <div class="top-line"></div>
+        </div>
+        <%= link_to 'Log In', login_path, class: "btn btn-secondary login" %>
+      </div>
+    </div>
+<% end %>
+
+
